@@ -11,6 +11,7 @@ RUN bundle exec rake assets:precompile
 ENV RAILS_ENV production
 ENV PORT 3000
 EXPOSE 3000
+VOLUME /public
 
-CMD foreman start -f Procfile
+CMD sudo cp -a /app/errbit/public/* /public && foreman start -f Procfile
 
