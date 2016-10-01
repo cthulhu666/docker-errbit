@@ -1,7 +1,8 @@
-FROM ruby:2.3.0-slim
+FROM ruby:2.3.1-slim
 MAINTAINER jakub.gluszecki@gmail.com
 
-RUN apt-get -qq update -y && apt-get -qq install -y build-essential 
+RUN apt-get -qq update -y && \
+    apt-get -qq install -y build-essential curl
 RUN gem install foreman --no-ri
 RUN mkdir /app && cd /app && curl https://codeload.github.com/errbit/errbit/tar.gz/v0.6.1 | tar xz && ln -s errbit-0.6.1 errbit
 
